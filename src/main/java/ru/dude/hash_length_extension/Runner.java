@@ -1,7 +1,9 @@
 package ru.dude.hash_length_extension;
 
 /**
- * @author Vladimir Hrostitisky
+ * Запуск
+ *
+ * @author Vladimir X
  * Date: 29.08.2021
  */
 public class Runner {

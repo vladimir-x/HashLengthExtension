@@ -3,6 +3,7 @@ package ru.dude.hash_length_extension;
 import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Scanner;
 
 /**
  * Вспомогательные фукнции
@@ -55,6 +56,21 @@ public class Util {
             sb.append(String.format("\\x%02X", b));
         }
         return sb.toString();
+    }
+
+    static byte[] fromHex(String input){
+        ByteBuffer bf = ByteBuffer.allocate(input.length()/4);
+
+        for (int i = 0; i < input.length() - 4; ++i) {
+            if (input.charAt(i) == '\\' && input.charAt(i + 1) == 'x') {
+                byte x = (byte) Integer.parseInt(input.substring(i + 2, i + 4),16);
+                bf.put(x);
+                System.out.println(x);
+                i+=3;
+            }
+        }
+
+        return bf.array();
     }
 
     /**
